@@ -5,31 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>レストラン ビリーブ</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-  :root {
-    --color-bg: #f9f9f9;
-    --color-primary: #556b2f;
-    --color-text: #333333;
-    --color-accent: #8fbc8f;
-    --color-border: #ddd;
-  }
-  * {
-    box-sizing: border-box;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
   body {
     margin: 0;
+    background: #fafaf7;
+    color: #333;
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: var(--color-bg);
-    color: var(--color-text);
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
   header {
-    background-color: var(--color-primary);
-    color: white;
-    padding: 1.2rem 1.5rem;
+    background-color: #455a64;
+    color: #f0f0f0;
+    padding: 1rem 1.5rem;
     text-align: center;
   }
   header h1 {
@@ -39,89 +26,79 @@
     letter-spacing: 0.05em;
   }
   main {
-    flex-grow: 1;
     max-width: 900px;
     margin: 2rem auto;
-    padding: 0 1rem;
+    padding: 0 1rem 3rem;
   }
   section {
-    margin-bottom: 2.5rem;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgb(0 0 0 / 0.05);
-    padding: 1.5rem 1.8rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.07);
+    padding: 1.8rem 2rem;
+    margin-bottom: 2rem;
   }
-  section h2 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 0.4rem;
-    font-weight: 700;
-    color: var(--color-primary);
+  h2 {
+    font-weight: 600;
     font-size: 1.3rem;
+    border-bottom: 2px solid #455a64;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+    color: #2e3b43;
   }
   dl {
-    display: grid;
-    grid-template-columns: 5.5rem 1fr;
-    row-gap: 0.7rem;
-  }
-  dt {
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-  dd {
-    margin: 0;
-  }
-  .buttons {
     display: flex;
-    justify-content: center;
-    gap: 1.2rem;
     flex-wrap: wrap;
   }
-  .button {
-    background-color: var(--color-primary);
+  dt {
+    flex-basis: 35%;
+    font-weight: 600;
+    color: #455a64;
+    margin-bottom: 0.8rem;
+  }
+  dd {
+    flex-basis: 65%;
+    margin: 0 0 0.8rem 0;
+    word-break: break-word;
+    color: #444;
+  }
+  .btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  button, .btn-link {
+    flex: 1 1 120px;
+    background-color: #607d8b;
     color: white;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 0.75rem 1.7rem;
-    border-radius: 4px;
-    box-shadow: 0 3px 7px rgb(0 0 0 / 0.15);
-    transition: background-color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
+    border: none;
+    border-radius: 6px;
     font-size: 1rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    user-select: none;
   }
-  .button:hover,
-  .button:focus {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-  }
-  .button svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-    margin-right: 0.6rem;
+  button:hover, .btn-link:hover {
+    background-color: #455a64;
   }
   footer {
-    text-align: center;
     font-size: 0.75rem;
-    color: #777;
-    padding: 1rem 1rem;
-    border-top: 1px solid var(--color-border);
-    background-color: white;
+    color: #999999;
+    text-align: center;
+    margin: 3rem 1rem 2rem;
+    user-select: none;
   }
-  @media (max-width: 480px) {
-    dl {
-      grid-template-columns: 4.5rem 1fr;
+  @media (max-width: 600px) {
+    dt, dd {
+      flex-basis: 100%;
     }
-    header h1 {
-      font-size: 1.4rem;
+    .btns {
+      flex-direction: column;
     }
-    .button {
-      flex: 1 1 100%;
-      justify-content: center;
-      font-size: 0.95rem;
-      padding: 0.65rem 1rem;
+    button, .btn-link {
+      flex-basis: auto;
     }
   }
 </style>
@@ -131,48 +108,39 @@
   <h1>レストラン ビリーブ</h1>
 </header>
 <main>
-  <section aria-labelledby="section-info">
-    <h2 id="section-info">店舗情報</h2>
+  <section aria-labelledby="store-info">
+    <h2 id="store-info">店舗情報</h2>
     <dl>
       <dt>業種</dt>
       <dd>レストラン</dd>
-
+      <dt>所在地</dt>
+      <dd>〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI</dd>
       <dt>地域</dt>
       <dd>鳥取県鳥取市湖山町北</dd>
-
-      <dt>住所</dt>
-      <dd>〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI</dd>
-
       <dt>電話番号</dt>
       <dd>0857-31-4936</dd>
-
-      <dt>営業時間</dt>
-      <dd>店舗へご確認ください</dd>
-
-      <dt>メニュー・価格</dt>
-      <dd>店舗へご確認ください</dd>
-
-      <dt>口コミ・受賞歴</dt>
-      <dd>店舗へご確認ください</dd>
+      <dt>Instagram</dt>
+      <dd>あり（詳細は店舗へご確認ください）</dd>
+      <dt>公式ホームページ</dt>
+      <dd>現在Instagramのみの運用となります</dd>
+      <dt>GoogleマップURL</dt>
+      <dd>現在ご案内できるURLはございません</dd>
     </dl>
   </section>
-
-  <section aria-labelledby="section-contact">
-    <h2 id="section-contact">お問い合わせ・アクセス</h2>
-    <div class="buttons">
-      <a href="tel:0857314936" class="button" aria-label="電話をかける">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1c-9.39 0-17-7.61-17-17a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/></svg>
-        電話をかける
-      </a>
-      <a href="https://www.instagram.com/" class="button" target="_blank" rel="noopener noreferrer" aria-label="Instagramを開く">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
-        Instagram
-      </a>
+  <section aria-label="店舗への連絡">
+    <h2>お問い合わせ・アクセス</h2>
+    <div class="btns">
+      <button type="button" aria-label="電話をかける" onclick="location.href='tel:0857314936'">電話をかける</button>
+      <button type="button" aria-label="GoogleマップのURLは未設定のため表示不可" disabled style="background-color:#ccc;cursor:not-allowed;">Googleマップで見る<br><small>（URL未設定）</small></button>
     </div>
+  </section>
+  <section aria-label="お知らせ">
+    <h2>お知らせ</h2>
+    <p>現在の営業時間、メニュー、料金等の詳細は店舗へご確認ください。</p>
   </section>
 </main>
 <footer>
-  ※本ページは営業提案用のデモホームページです。
+  <p>※本ページは営業提案用のデモサイトです。</p>
 </footer>
 </body>
 </html>
