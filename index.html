@@ -1,146 +1,538 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>レストラン ビリーブ</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-  body {
-    margin: 0;
-    background: #fafaf7;
-    color: #333;
-    font-family: 'Noto Sans JP', sans-serif;
-    line-height: 1.6;
-  }
-  header {
-    background-color: #455a64;
-    color: #f0f0f0;
-    padding: 1rem 1.5rem;
-    text-align: center;
-  }
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: 0.05em;
-  }
-  main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem 3rem;
-  }
-  section {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 3px 8px rgb(0 0 0 / 0.07);
-    padding: 1.8rem 2rem;
-    margin-bottom: 2rem;
-  }
-  h2 {
-    font-weight: 600;
-    font-size: 1.3rem;
-    border-bottom: 2px solid #455a64;
-    padding-bottom: 0.3rem;
-    margin-bottom: 1rem;
-    color: #2e3b43;
-  }
-  dl {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  dt {
-    flex-basis: 35%;
-    font-weight: 600;
-    color: #455a64;
-    margin-bottom: 0.8rem;
-  }
-  dd {
-    flex-basis: 65%;
-    margin: 0 0 0.8rem 0;
-    word-break: break-word;
-    color: #444;
-  }
-  .btns {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  button, .btn-link {
-    flex: 1 1 120px;
-    background-color: #607d8b;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    padding: 0.75rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    text-align: center;
-    user-select: none;
-  }
-  button:hover, .btn-link:hover {
-    background-color: #455a64;
-  }
-  footer {
-    font-size: 0.75rem;
-    color: #999999;
-    text-align: center;
-    margin: 3rem 1rem 2rem;
-    user-select: none;
-  }
-  @media (max-width: 600px) {
-    dt, dd {
-      flex-basis: 100%;
+  <meta charset="UTF-8">
+  <title>レストラン ビリーブ｜鳥取県鳥取市湖山町北のレストラン</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="レストラン ビリーブは鳥取県鳥取市湖山町北にあるレストランです。店舗情報・アクセス・お問い合わせはこちら。">
+  <meta property="og:title" content="レストラン ビリーブ｜鳥取県鳥取市湖山町北のレストラン">
+  <meta property="og:description" content="レストラン ビリーブは鳥取県鳥取市湖山町北にあるレストランです。店舗情報・アクセス・お問い合わせはこちら。">
+  <!-- og:imageは現時点で画像URLがないため設定せず -->
+  <!-- ファビコン：差し替え時は下記linkを編集 -->
+  <!-- <link rel="icon" href="favicon.ico"> -->
+  <style>
+    :root {
+      --primary-color: #36657d;
+      --accent-color: #89a1b5;
+      --background-color: #f5f7f9;
+      --surface-color: #fff;
+      --placeholder-bg: #dde3e9;
+      --placeholder-fg: #7a8188;
+      --border-radius: 10px;
+      --font-family: 'Helvetica Neue', Arial, 'Yu Gothic', 'Meiryo', sans-serif;
+      --max-width: 680px;
     }
-    .btns {
+
+    html {
+      font-size: 16px;
+      background: var(--background-color);
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      color: #222;
+      background: var(--background-color);
+    }
+    header {
+      background: var(--surface-color);
+      border-bottom: 1px solid #e3e7ed;
+      box-shadow: 0 1px 2px rgba(54,101,125,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .header-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.7em 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .site-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      background: var(--surface-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 6px rgba(54,101,125,0.07);
+      overflow: hidden;
+      margin-top: 16px;
+      margin-bottom: 72px; /* for actionbar space */
+    }
+    /* メインビジュアル */
+    .mainvisual {
+      position: relative;
+      min-height: 170px;
+      background: var(--placeholder-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0;
+    }
+    .mainvisual-image {
+      width: 100%;
+      min-height: 170px;
+      object-fit: cover;
+      display: block;
+    }
+    .mainvisual-placeholder {
+      width: 100%;
+      min-height: 170px;
+      background: var(--placeholder-bg);
+      color: var(--placeholder-fg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      position: relative;
       flex-direction: column;
     }
-    button, .btn-link {
-      flex-basis: auto;
+    .mainvisual-text {
+      position: absolute;
+      left: 0; right: 0; top: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      background: none;
     }
-  }
-</style>
+    .mainvisual .store-name {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.15em;
+      text-shadow: 0 2px 8px rgba(245,247,249,0.06);
+      letter-spacing: 0.03em;
+    }
+    .mainvisual .store-type-location {
+      color: var(--primary-color);
+      margin-bottom: 0.2em;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .mainvisual .quick-actions {
+      display: flex;
+      gap: 0.75em;
+      margin-top: 0.6em;
+      justify-content: center;
+    }
+    .mainvisual .quick-actions a {
+      background: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.55em 1.1em;
+      border-radius: 32px;
+      transition: opacity 0.14s;
+      display: inline-block;
+      box-shadow: 0 1px 2px rgba(54,101,125,0.06);
+    }
+    .mainvisual .quick-actions a:hover,
+    .mainvisual .quick-actions a:focus {
+      opacity: 0.82;
+    }
+    /* セクション共通 */
+    section {
+      padding: 1.5em 1.2em 1em 1.2em;
+      border-bottom: 1px solid #f0f1f3;
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 1.08rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.7em;
+      letter-spacing: 0.01em;
+      border-left: 3px solid var(--accent-color);
+      padding-left: 0.8em;
+    }
+    /* 店舗特徴 */
+    .features-list {
+      margin: 0;
+      padding: 0 ;
+      list-style: none;
+    }
+    /* メニュー・サービス */
+    .menu-note {
+      color: #6a7680;
+      font-size: 1rem;
+      margin: 0 0 0.5em 0;
+    }
+    /* ギャラリー */
+    .gallery-grid {
+      display: flex;
+      gap: 0.8em;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .gallery-placeholder {
+      background: var(--placeholder-bg);
+      color: var(--placeholder-fg);
+      width: 46vw;
+      min-width: 120px;
+      max-width: 200px;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-bottom: 0.6em;
+      position: relative;
+      flex: 1 1 46vw;
+      text-align: center;
+      outline: 1px dashed #b9c3cd66;
+    }
+    .gallery-placeholder span {
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
+      color: var(--placeholder-fg);
+    }
+    /* Instagram案内 */
+    .instagram-note {
+      color: #455066;
+      font-size: 1rem;
+      margin: 0.2em 0;
+      word-break: break-all;
+    }
+    .instagram-label {
+      color: #b35063;
+      font-weight: bold;
+      font-size: 1.03em;
+      margin-right: 0.3em;
+    }
+    /* 店舗情報 */
+    .storeinfo-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.02rem;
+    }
+    .storeinfo-list li {
+      margin-bottom: 0.4em;
+    }
+    .storeinfo-label {
+      min-width: 4.5em;
+      display: inline-block;
+      color: var(--accent-color);
+      font-weight: 500;
+      font-size: 1em;
+    }
+    .storeinfo-value {
+      color: #25313f;
+    }
+    /* アクセス */
+    .map-access-box {
+      margin-top: 0.5em;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+    .map-btn {
+      background: var(--primary-color);
+      color: #fff;
+      border-radius: 32px;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.50em 1.3em;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 0.2em;
+      margin-bottom: 0.2em;
+      transition: opacity 0.13s;
+    }
+    .map-btn:hover,
+    .map-btn:focus {
+      opacity: 0.82;
+    }
+    /* 予約・問い合わせ */
+    .contact-actions {
+      display: flex;
+      gap: 1em;
+      margin-top: 1.1em;
+      flex-wrap: wrap;
+    }
+    .contact-btn {
+      border-radius: 28px;
+      font-size: 1.02rem;
+      font-weight: 500;
+      padding: 0.5em 1.3em;
+      background: var(--accent-color);
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 0.3em;
+      transition: background 0.13s, opacity 0.13s;
+      box-shadow: 0 1px 2px rgba(54,101,125,0.03);
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.34em;
+    }
+    .contact-btn.tel {
+      background: #307984;
+      color: #fff;
+    }
+    .contact-btn.map {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .contact-btn:active {
+      opacity: 0.78;
+    }
+    .contact-btn:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+    .contact-btn[disabled] {
+      pointer-events: none;
+      opacity: 0.50;
+    }
+
+    /* 固定アクションバー */
+    .actionbar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 30;
+      background: var(--surface-color);
+      border-top: 1px solid #e8eaf0;
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      padding: 0.7em 0.7em 0.7em 0.7em;
+      max-width: 100vw;
+      box-shadow: 0 -1px 5px rgba(54,101,125,0.04);
+    }
+    .actionbar .action-btn {
+      flex: 1 1 0;
+      font-size: 1.03rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 24px;
+      padding: 0.63em 0.5em;
+      margin: 0 0.1em;
+      background: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35em;
+      min-width: 1em;
+      transition: opacity 0.15s;
+    }
+    .actionbar .action-btn:hover,
+    .actionbar .action-btn:focus {
+      opacity: 0.86;
+    }
+    /* PC/タブレット時 mainの余白調整 */
+    @media (min-width:680px) {
+      main {
+        margin-top: 32px;
+        margin-bottom: 70px;
+      }
+      .mainvisual-placeholder, .mainvisual-image {
+        min-height: 230px;
+        height: 230px;
+      }
+      .gallery-placeholder {
+        min-width: 180px;
+        height: 132px;
+      }
+    }
+    @media (min-width:860px) {
+      main { max-width: 640px; }
+    }
+    @media (max-width:480px) {
+      .mainvisual .store-name {
+        font-size: 1.4rem;
+      }
+      .section-title {
+        font-size: 1rem;
+      }
+    }
+
+    /* prefers-reduced-motion対応 */
+    @media (prefers-reduced-motion: reduce) {
+      *, *:before, *:after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+    /* フッター */
+    footer {
+      width: 100%;
+      font-size: 0.93rem;
+      color: #979ca5;
+      text-align: center;
+      background: none;
+      margin: 2.2em 0 1.1em 0;
+      letter-spacing: 0.01em;
+      padding-bottom: 0.6em;
+    }
+    .notice-demo {
+      font-size: 0.82em;
+      color: #b3b8bf;
+      margin-top: 0.3em;
+      letter-spacing: 0.01em;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>レストラン ビリーブ</h1>
-</header>
-<main>
-  <section aria-labelledby="store-info">
-    <h2 id="store-info">店舗情報</h2>
-    <dl>
-      <dt>業種</dt>
-      <dd>レストラン</dd>
-      <dt>所在地</dt>
-      <dd>〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI</dd>
-      <dt>地域</dt>
-      <dd>鳥取県鳥取市湖山町北</dd>
-      <dt>電話番号</dt>
-      <dd>0857-31-4936</dd>
-      <dt>Instagram</dt>
-      <dd>あり（詳細は店舗へご確認ください）</dd>
-      <dt>公式ホームページ</dt>
-      <dd>現在Instagramのみの運用となります</dd>
-      <dt>GoogleマップURL</dt>
-      <dd>現在ご案内できるURLはございません</dd>
-    </dl>
-  </section>
-  <section aria-label="店舗への連絡">
-    <h2>お問い合わせ・アクセス</h2>
-    <div class="btns">
-      <button type="button" aria-label="電話をかける" onclick="location.href='tel:0857314936'">電話をかける</button>
-      <button type="button" aria-label="GoogleマップのURLは未設定のため表示不可" disabled style="background-color:#ccc;cursor:not-allowed;">Googleマップで見る<br><small>（URL未設定）</small></button>
+  <header>
+    <div class="header-inner">
+      <span class="site-title">レストラン ビリーブ</span>
     </div>
-  </section>
-  <section aria-label="お知らせ">
-    <h2>お知らせ</h2>
-    <p>現在の営業時間、メニュー、料金等の詳細は店舗へご確認ください。</p>
-  </section>
-</main>
-<footer>
-  <p>※本ページは営業提案用のデモサイトです。</p>
-</footer>
+  </header>
+  <main>
+    <!-- メインビジュアル -->
+    <div class="mainvisual" aria-label="店舗メインビジュアル">
+      <div class="mainvisual-placeholder">
+        <span>店舗写真に差し替え予定</span>
+      </div>
+      <div class="mainvisual-text">
+        <div class="store-name">レストラン ビリーブ</div>
+        <div class="store-type-location">
+          レストラン ｜ 鳥取県鳥取市湖山町北
+        </div>
+        <div class="quick-actions">
+          <a href="tel:0857314936" aria-label="電話で問い合わせ">電話する</a>
+          <a href="https://maps.google.com/?q=〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI" target="_blank" rel="noopener noreferrer" aria-label="Googleマップで店舗を見る">アクセス</a>
+        </div>
+      </div>
+    </div>
+    <!-- 店舗特徴 -->
+    <section aria-label="店舗特徴">
+      <h2 class="section-title">店舗について</h2>
+      <ul class="features-list">
+        <li>レストラン（鳥取県鳥取市湖山町北）</li>
+      </ul>
+    </section>
+    <!-- メニュー・サービス -->
+    <section aria-label="メニュー・サービス">
+      <h2 class="section-title">メニュー・サービス</h2>
+      <div class="menu-note">詳細は店舗へご確認ください</div>
+    </section>
+    <!-- 写真ギャラリー -->
+    <section aria-label="写真ギャラリー">
+      <h2 class="section-title">店舗写真</h2>
+      <div class="gallery-grid">
+        <div class="gallery-placeholder"><span>店舗写真に差し替え予定</span></div>
+        <div class="gallery-placeholder"><span>店舗写真に差し替え予定</span></div>
+      </div>
+    </section>
+    <!-- Instagram案内 -->
+    <section aria-label="Instagram">
+      <h2 class="section-title">Instagram</h2>
+      <div class="instagram-note">
+        <span class="instagram-label">Instagram：</span>
+        公式Instagramリンク要確認
+      </div>
+    </section>
+    <!-- 店舗情報 -->
+    <section aria-label="店舗情報">
+      <h2 class="section-title">店舗情報</h2>
+      <ul class="storeinfo-list">
+        <li><span class="storeinfo-label">店名</span>
+          <span class="storeinfo-value">レストラン ビリーブ</span></li>
+        <li><span class="storeinfo-label">住所</span>
+          <span class="storeinfo-value">〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI</span></li>
+        <li><span class="storeinfo-label">電話</span>
+          <span class="storeinfo-value"><a href="tel:0857314936" style="color: var(--primary-color); text-decoration: underline;">0857-31-4936</a></span></li>
+        <li><span class="storeinfo-label">業種</span>
+          <span class="storeinfo-value">レストラン</span></li>
+      </ul>
+    </section>
+    <!-- アクセス -->
+    <section aria-label="アクセス">
+      <h2 class="section-title">アクセス</h2>
+      <div>
+        <div>
+          <span>Googleマップで店舗位置を確認できます。</span>
+          <div class="map-access-box">
+            <a class="map-btn" href="https://maps.google.com/?q=〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI" target="_blank" rel="noopener noreferrer">地図・経路</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 予約・問い合わせ -->
+    <section aria-label="予約・問い合わせ">
+      <h2 class="section-title">予約・問い合わせ</h2>
+      <div class="contact-actions">
+        <a class="contact-btn tel" href="tel:0857314936" aria-label="電話で問い合わせ">
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;" aria-hidden="true">
+            <path d="M5.262 3.126c-.501-.892-1.685-.963-2.274-.133C2.06 4.03 1.341 6.02 2.019 8.162c.677 2.143 2.387 5.32 5.693 8.627 3.307 3.305 6.484 5.015 8.626 5.692 2.143.678 4.133-.041 5.169-.968.83-.59.758-1.772-.135-2.273a24.84 24.84 0 0 0-4.328-2.164c-.628-.242-1.358-.078-1.799.363l-1.638 1.637a.933.933 0 0 1-1.027.21c-.613-.227-2.07-1.357-4.026-3.312-1.956-1.957-3.085-3.414-3.313-4.027a.934.934 0 0 1 .212-1.026l1.638-1.638c.441-.441.605-1.17.363-1.799A24.826 24.826 0 0 0 5.262 3.126z" fill="#fff"/>
+          </svg>
+          電話する
+        </a>
+        <a class="contact-btn map" href="https://maps.google.com/?q=〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;" aria-hidden="true">
+            <path d="M9.998 1.666c-3.681 0-6.667 2.986-6.667 6.667 0 5.022 6.085 9.996 6.342 10.186a.833.833 0 0 0 .99 0c.257-.19 6.342-5.164 6.342-10.186 0-3.681-2.986-6.667-6.667-6.667zm0 8.333a1.666 1.666 0 1 1 0-3.333 1.666 1.666 0 0 1 0 3.333z" fill="#fff"/>
+          </svg>
+          地図を見る
+        </a>
+      </div>
+      <div style="color: #6a7680; font-size: 0.97em; margin-top:0.6em;">
+        ※営業時間、定休日などの最新情報は店舗へご確認ください
+      </div>
+    </section>
+  </main>
+  <!-- 固定アクションバー -->
+  <nav class="actionbar" aria-label="主要アクション">
+    <a class="action-btn" href="tel:0857314936" aria-label="電話で問い合わせ">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;" aria-hidden="true">
+        <path d="M5.262 3.126c-.501-.892-1.685-.963-2.274-.133C2.06 4.03 1.341 6.02 2.019 8.162c.677 2.143 2.387 5.32 5.693 8.627 3.307 3.305 6.484 5.015 8.626 5.692 2.143.678 4.133-.041 5.169-.968.83-.59.758-1.772-.135-2.273a24.84 24.84 0 0 0-4.328-2.164c-.628-.242-1.358-.078-1.799.363l-1.638 1.637a.933.933 0 0 1-1.027.21c-.613-.227-2.07-1.357-4.026-3.312-1.956-1.957-3.085-3.414-3.313-4.027a.934.934 0 0 1 .212-1.026l1.638-1.638c.441-.441.605-1.17.363-1.799A24.826 24.826 0 0 0 5.262 3.126z" fill="#fff"/>
+      </svg>
+      電話
+    </a>
+    <a class="action-btn" href="https://maps.google.com/?q=〒680-0941 鳥取県鳥取市湖山町北1丁目41 9 セレナール IZUMI" target="_blank" rel="noopener noreferrer" aria-label="Googleマップで店舗を見る">
+      <svg width="17" height="17" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;" aria-hidden="true">
+        <path d="M9.998 1.666c-3.681 0-6.667 2.986-6.667 6.667 0 5.022 6.085 9.996 6.342 10.186a.833.833 0 0 0 .99 0c.257-.19 6.342-5.164 6.342-10.186 0-3.681-2.986-6.667-6.667-6.667zm0 8.333a1.666 1.666 0 1 1 0-3.333 1.666 1.666 0 0 1 0 3.333z" fill="#fff"/>
+      </svg>
+      地図
+    </a>
+  </nav>
+  <footer>
+    <div>
+      &copy; レストラン ビリーブ
+      <div class="notice-demo">営業提案用デモサイトです。正式公開前に店舗確認と写真使用許可が必要です。</div>
+    </div>
+  </footer>
+  <script>
+    // 画像やギャラリー差し替え時は、このJS部分も編集へ
+    // prefers-reduced-motion: reduce 対応のため、フェード表示は限定的に
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const sections = document.querySelectorAll('main > section, .mainvisual');
+      let baseDelay = 120;
+      sections.forEach(function(sec, i) {
+        sec.style.opacity = 0;
+        sec.style.transition = 'opacity 0.7s cubic-bezier(0.36, 0.72, 0.44, 1)';
+        setTimeout(function(){
+          sec.style.opacity = 1;
+        }, baseDelay + i*100);
+      });
+    });
+  </script>
 </body>
 </html>
